@@ -1,0 +1,6 @@
+package fundModels;
+
+public class WeightedQuickUnionUF {
+	private int[] id;	// root node
+	private int[] sz;	// number of objects in single root
+}

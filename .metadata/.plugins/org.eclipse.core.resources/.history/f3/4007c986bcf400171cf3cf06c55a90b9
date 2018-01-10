@@ -1,0 +1,5 @@
+package fundModels;
+
+public class QuickFindUF {
+
+}
