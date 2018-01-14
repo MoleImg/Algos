@@ -2,7 +2,7 @@
  * Percolations.java
  * Todo: operations for sites
  */
-package Assignments.HW1;
+package Assignment.HW1;
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {

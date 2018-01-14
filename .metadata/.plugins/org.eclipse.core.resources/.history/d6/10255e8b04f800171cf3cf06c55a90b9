@@ -2,7 +2,7 @@
  * PercolationStats.java
  * Todo: perform the Monte-Carlo experiments for finding the percolation threshold
  */
-package Assignments.HW1;
+
 import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdStats;
 
