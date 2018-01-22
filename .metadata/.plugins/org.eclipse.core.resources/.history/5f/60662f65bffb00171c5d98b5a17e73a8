@@ -1,0 +1,25 @@
+package fundModels.Stack;
+
+public class StackByLinekedList<Item> {
+	private Node first = null;
+	
+	public void push(Item item) {
+		Node oldFirst = first;
+		first = new Node();
+		first.item = item;
+		first.next = oldFirst;
+	}
+	private class Node {
+		Item item;
+		Node next;
+	}
+	public StackByLinekedList() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,16 @@
+package fundModels.Stack;
+
+public class StackByResizingArray<Item> {
+	private Item[] s;
+	private int N;
+	
+	public StackByResizingArray() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

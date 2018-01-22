@@ -1,0 +1,10 @@
+/**
+ * Foundations of sort algorithms
+ */
+package fundModels.Sort;
+
+public class SortAlgos {
+	
+	abstract static void sort(Comparable a[]);
+
+}

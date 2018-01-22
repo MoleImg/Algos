@@ -1,0 +1,23 @@
+package fundModels;
+
+public class StackOfStrings {
+	public StackOfStrings() {	// create an empty stack
+		
+	}
+	
+	public void push(String item) {	// insert a new string onto stack
+		
+	}
+	
+	public String pop() {	// remove and return the string most recently added
+		
+	}
+	
+	public boolean isEmpty() {	// is the stack empty
+		
+	}
+	
+	public int size() {	// number of strings on the stack
+		
+	}
+}

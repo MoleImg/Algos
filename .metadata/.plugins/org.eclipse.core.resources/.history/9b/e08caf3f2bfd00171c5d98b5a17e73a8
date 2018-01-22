@@ -1,0 +1,5 @@
+package fundModels.Sort;
+
+public abstract class SortAlgos {
+
+}

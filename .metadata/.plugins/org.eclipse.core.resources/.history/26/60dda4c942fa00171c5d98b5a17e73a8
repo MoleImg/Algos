@@ -1,0 +1,36 @@
+/**
+ * ResizingArrayStackOfStrings.java
+ * Todo: Implementation of a string stack by resizing array
+ */
+package fundModels;
+
+public class ResizingArrayStackOfStrings {
+	private String[] s;
+	private int N = 0;
+	
+	public ResizingArrayStackOfStrings() {
+		s = new String[1];
+	}
+
+	public boolean isEmpty() {
+		return N == 0;
+	}
+	
+	public void push(String item) {
+		if (N == s.length) resize(2 * s.length);
+		s[N++] = item;
+	}
+	
+	public String pop() {
+		
+	}
+	
+	private void resize(int capacity) {	// resize the capacity of the array
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

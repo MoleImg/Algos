@@ -1,0 +1,24 @@
+package fundModels;
+
+public class QueueOfStrings {
+	public QueueOfStrings() {
+		
+	}
+	
+	public void enqueue(String item) {
+		
+	}
+	
+	public String dequeue() {
+		
+	}
+	
+	public boolean isEmpty() {
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

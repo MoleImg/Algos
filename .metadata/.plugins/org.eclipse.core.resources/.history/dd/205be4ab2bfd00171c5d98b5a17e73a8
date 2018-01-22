@@ -1,0 +1,14 @@
+/**
+ * Foundations of sort algorithms
+ */
+package fundModels.Sort;
+
+public abstract class SortAlgos {
+	
+	public abstract void sort(Comparable a[]); // sort machine
+	
+	private static boolean less(Comparable v, Comparable w) {
+		return v.compareTo(w) < 0;
+	}
+
+}

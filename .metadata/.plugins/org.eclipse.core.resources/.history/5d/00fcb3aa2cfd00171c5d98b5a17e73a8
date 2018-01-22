@@ -1,0 +1,14 @@
+/**
+ * Foundations of sort algorithms
+ */
+package fundModels.Sort;
+
+public interface SortAlgos {
+	
+	public abstract void sort(Comparable a[]); // sort machine
+	
+	boolean less(Comparable v, Comparable w);
+	
+	void swap(Comparable a[], int i, int j);
+
+}

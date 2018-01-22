@@ -1,0 +1,34 @@
+package fundModels;
+
+public class QueueOfStrings {
+	private Node first, last = null;
+	public QueueOfStrings() {
+		
+	}
+	
+	public void enqueue(String item) {
+		Node newNode = new Node();
+		newNode.item = item;
+		last.next = newNode;
+	}
+	
+	public String dequeue() {
+		String oldItem = first.item;
+		first = first.next;
+		return oldItem;
+	}
+	
+	public boolean isEmpty() {
+		
+	}
+	
+	private class Node {
+		String item;
+		Node next;
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

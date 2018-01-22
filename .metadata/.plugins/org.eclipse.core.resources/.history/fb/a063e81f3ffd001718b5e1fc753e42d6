@@ -1,0 +1,16 @@
+package fundModels.Sort;
+
+public class Selection extends SortAlgos{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void sort(Comparable[] a) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

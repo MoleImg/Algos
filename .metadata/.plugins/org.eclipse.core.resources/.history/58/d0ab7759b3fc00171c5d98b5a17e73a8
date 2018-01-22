@@ -1,0 +1,11 @@
+package Assignments.HW2;
+
+public class Permutation {
+
+	public static void main(String[] args) {
+		// test client
+		int n = Integer.parseInt(args[0]);
+
+	}
+
+}
