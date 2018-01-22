@@ -84,8 +84,8 @@ public class Merge extends SortAlgos{
 		for (int k = lo; k <= hi; k++) {
 			if (i > mid) a[k] = aux[j++];
 			else if (j > hi) a[k] = aux[i++];
-			else if (less(aux[i], aux[j])) a[k] = a[i++];
-			else a[k] = a[j++];
+			else if (less(aux[i], aux[j])) a[k] = aux[i++];
+			else a[k] = aux[j++];
 		}
 		
 		assert isSorted(a, lo, hi);
@@ -96,6 +96,18 @@ public class Merge extends SortAlgos{
 			Comparator comparator) {
 		assert isSorted(a, lo, mid, comparator);
 		assert isSorted(a, mid+1, hi, comparator);
+
+		for (int k = lo; k <= hi; k++) {
+			aux[k] = a[k];
+		}
+
+		int i = lo; int j = mid + 1;
+		for (int k = lo; k <= hi; k++) {
+			if (i > mid) a[k] = aux[j++];
+			else if (j > hi) a[k] = aux[i++];
+			else if (less(comparator, aux[i], aux[j])) a[k] = aux[i++];
+			else a[k] = aux[j++];
+ 		}
 		
 		
 		
