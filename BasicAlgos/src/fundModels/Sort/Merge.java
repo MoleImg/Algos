@@ -43,7 +43,7 @@ public class Merge extends SortAlgos{
 		//
 		if (hi <= lo + CUTTOFF - 1) {
 			Insertion ins = new Insertion();
-			ins.sort(a, lo, hi);
+			ins.sort(a, lo, hi, comparator);
 			return;
 		}
 		//
@@ -125,7 +125,14 @@ public class Merge extends SortAlgos{
 	}
 	
 	public void sortBU(Object[] a, Comparator comparator) {
+		int N = a.length;
+		Object[] aux = new Object[N];
 		
+		for(int sz = 1; sz < N; sz += sz) {
+			for (int lo = 0; lo < N - sz; lo += sz + sz) {
+				merge(a, aux, lo, lo + sz -1, Math.min(lo+2*sz-1, N-1), comparator);
+			}
+		}
 	}
 
 }
