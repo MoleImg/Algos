@@ -1,18 +1,11 @@
-<<<<<<< HEAD
-
-=======
 package Assignments.HW3;
->>>>>>> 077fb1ab8588af92db16dd0932e763f37ad964ca
 
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-<<<<<<< HEAD
 import edu.princeton.cs.algs4.StdDraw;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
-=======
->>>>>>> 077fb1ab8588af92db16dd0932e763f37ad964ca
 
 public class BruteCollinearPoints {
     private final LineSegment[] lineSegments;
@@ -78,8 +71,6 @@ public class BruteCollinearPoints {
             throw new IllegalArgumentException();
         }
     }
-<<<<<<< HEAD
-
 
     /**
      * Sample client
@@ -113,6 +104,4 @@ public class BruteCollinearPoints {
                 }
                 StdDraw.show();
             }
-=======
->>>>>>> 077fb1ab8588af92db16dd0932e763f37ad964ca
  }
