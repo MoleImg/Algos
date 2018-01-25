@@ -44,6 +44,7 @@ public class Quick extends SortAlgos {
         return j;
     }
 
+<<<<<<< HEAD
     public void sortBy3Way(Comparable a[], int lo, int hi) {
         StdRandom.shuffle(a);
         if (hi <= lo) return;
@@ -58,6 +59,8 @@ public class Quick extends SortAlgos {
         sort(a, gt + 1, hi);
     }
 
+=======
+>>>>>>> 077fb1ab8588af92db16dd0932e763f37ad964ca
     /**
      * select the kth smallest element from the array
      */
@@ -72,7 +75,10 @@ public class Quick extends SortAlgos {
         }
         return a[k];
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 077fb1ab8588af92db16dd0932e763f37ad964ca
     
     
 }
