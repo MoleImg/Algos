@@ -73,7 +73,6 @@ public class FastCollinearPoints {
             throw new IllegalArgumentException();
         }
     }
-<<<<<<< HEAD
 
     /**
      * Sample client
@@ -107,6 +106,4 @@ public class FastCollinearPoints {
             }
             StdDraw.show();
         }
-=======
->>>>>>> 077fb1ab8588af92db16dd0932e763f37ad964ca
  }
