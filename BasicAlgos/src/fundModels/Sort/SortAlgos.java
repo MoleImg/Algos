@@ -7,8 +7,8 @@ import java.util.Comparator;
 
 public abstract class SortAlgos {
 	
-	public abstract void sort(Comparable a[]); // sort machine
-	public abstract void sort(Comparable a[], int lo, int hi); // piecewise sort machine
+	public abstract void sort(Comparable[] a); // sort machine
+	public abstract void sort(Comparable[] a, int lo, int hi); // piecewise sort machine
 	public abstract void sort(Object[] a, Comparator comparator);
 	public abstract void sort(Object[] a, int lo, int hi, Comparator comparator);
 	
