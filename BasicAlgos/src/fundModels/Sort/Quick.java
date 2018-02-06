@@ -37,7 +37,7 @@ public class Quick extends SortAlgos {
                 if (i == hi) break;
             while(less(a[lo], a[--j]))
                 if (j == lo) break;
-            if (i > j) break;
+            if (i >= j) break;
             swap(a, i, j);
         }
         swap(a, lo, j);
