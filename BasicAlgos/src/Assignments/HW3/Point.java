@@ -1,4 +1,4 @@
-
+package Assignments.HW3;
 
 /******************************************************************************
  *  Compilation:  javac Point.java

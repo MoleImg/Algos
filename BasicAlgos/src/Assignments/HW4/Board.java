@@ -1,5 +1,6 @@
+package Assignments.HW4;
 
-
+//import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -62,8 +63,8 @@ public class Board {
 
     private int manhattan(int row, int col) {
         int destVal = board[row][col];
-        int destRow = destVal / N;
-        int destCol = destVal % N - 1;
+        int destRow = (destVal-1) / N;
+        int destCol = (destVal-1) % N;
         return Math.abs(destRow - row) + Math.abs(destCol - col);
     }
 
@@ -112,23 +113,27 @@ public class Board {
         List<Board> neighbors = new LinkedList<Board>();
         // moving up
         if (blankRow > 0) {
-            swap(board, blankRow, blankCol, blankRow - 1, blankCol);
-            neighbors.add(new Board(board));
+        	int[][] up = copyOf(board);
+            swap(up, blankRow, blankCol, blankRow - 1, blankCol);
+            neighbors.add(new Board(up));
         }
         // moving down
         if (blankRow < N - 1) {
-            swap(board, blankRow, blankCol, blankRow + 1, blankCol);
-            neighbors.add(new Board(board));
+        	int[][] down = copyOf(board);
+            swap(down, blankRow, blankCol, blankRow + 1, blankCol);
+            neighbors.add(new Board(down));
         }
         // moving left
         if (blankCol > 0) {
-            swap(board, blankRow, blankCol, blankRow, blankCol - 1);
-            neighbors.add(new Board(board));
+        	int[][] left = copyOf(board);
+            swap(left, blankRow, blankCol, blankRow, blankCol - 1);
+            neighbors.add(new Board(left));
         }
         // moving right
         if (blankCol < N - 1) {
-            swap(board, blankRow, blankCol, blankRow, blankCol + 1);
-            neighbors.add(new Board(board));
+        	int[][] right = copyOf(board);
+            swap(right, blankRow, blankCol, blankRow, blankCol + 1);
+            neighbors.add(new Board(right));
         }
 
         return neighbors;
@@ -141,7 +146,7 @@ public class Board {
         sb.append("\n");
         for (int row = 0; row < N; row++) {
             for (int col = 0; col < N; col++) {
-                sb.append(String.format("%2d", board[row][col]));
+                sb.append(String.format("%2d ", board[row][col]));
             }
             sb.append("\n");
         }
@@ -158,6 +163,6 @@ public class Board {
     }
 
     public static void main(String[] args) {
-        // unit tests (not graded)
+        // unit tests (not graded
     }
 }
