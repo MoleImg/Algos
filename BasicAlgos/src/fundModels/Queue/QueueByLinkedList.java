@@ -1,7 +1,8 @@
 package fundModels.Queue;
 
+import java.util.Iterator;
 
-public class QueueByLinkedList<Item> {
+public class QueueByLinkedList<Item> implements Iterable<Item>{
 	private Node first, last;
 	
 	public QueueByLinkedList() {
@@ -27,6 +28,26 @@ public class QueueByLinkedList<Item> {
 		first = first.next;
 		if (isEmpty()) last = null;
 		return oldItem;
+	}
+
+	@Override
+	public Iterator<Item> iterator() {
+		return new QueueIterator();
+	}
+
+	private class QueueIterator implements Iterator<Item> {
+		private Node current = first;
+		@Override
+		public boolean hasNext() {
+			return null == current.next;
+		}
+
+		@Override
+		public Item next() {
+			Item item = current.item;
+			current = current.next;
+			return item;
+		}
 	}
 
 	

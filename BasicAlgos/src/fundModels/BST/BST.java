@@ -1,5 +1,6 @@
 package fundModels.BST;
 
+import fundModels.Queue.*;
 
 public class BST<Key extends Comparable<Key>, Value> {
 
@@ -97,18 +98,15 @@ public class BST<Key extends Comparable<Key>, Value> {
 		if (null == node) return null;
 		int cmp = node.key.compareTo(key);
 		if (cmp > 0) node.left = delete(node.left, key);
-		else if (cmp < 0) node.right = delete(node.right, key);
+		if (cmp < 0) node.right = delete(node.right, key);
 		else {
-			if (null == node.left) return node.right;
-			if (null == node.right) return node.left;
 			Node tmp = node;
-			node = min(tmp.right);
+			node = min(node.right);
 			node.right = deleteMin(tmp.right);
 			node.left = tmp.left;
 		}
 		node.size = 1 + size(node.left) + size(node.right);
 		return node;
-
 	}
 
 	public Key max() {
@@ -133,8 +131,67 @@ public class BST<Key extends Comparable<Key>, Value> {
 		else return min(node.left);
 	}
 
+	public Key floor(Key key) {
+		Node x = floor(root, key);
+		return null == x ? null : x.key;
+	}
+
+	private Node floor(Node node, Key key) {
+		if (null == node) return null;
+		int cmp = node.key.compareTo(key);
+		if (0 == cmp) return node;
+		if (cmp > 0) return floor(node.left, key);
+		Node t = floor(node.right, key);
+		return null == t ? node : t;
+	}
+
+	public Key ceiling(Key key) {
+		if (key == null) throw new IllegalArgumentException(
+			"argument to ceiling() is null");
+		if (isEmpty()) throw new IllegalArgumentException(
+			"calls ceiling() with empty symbol table");
+		Node x = ceiling(root, key);
+		return null == x ? null : x.key;
+	}
+
+	private Node ceiling(Node node, Key key) {
+		if (null == node) return null;
+		int cmp = node.key.compareTo(key);
+		if (0 == cmp) return node;
+		if (cmp < 0) return ceiling(node.right, key);
+		Node t = ceiling(node.left, key);
+		return null == t ? node : t;
+
+	}
+
+
+	public int rank(Key key) {
+		return rank(root, key);
+	}
+
+	private int rank(Node node, Key key) {
+		if (null == node) return 0;
+		int cmp = node.key.compareTo(key);
+		if (0 == cmp) return size(node.left);
+		else if (cmp > 0) return rank(node.left, key);
+		else return 1 + size(node.left) + rank(node.right, key);
+
+	}
+
+	/**
+	 * inorder traverse
+	 */
 	public Iterable<Key> keys() {
-		
+		QueueByLinkedList<Key> queue = new QueueByLinkedList<Key>();
+		inorder(root, queue);
+		return queue;
+	}
+
+	private void inorder(Node node, QueueByLinkedList q) {
+		if (null == node) return;
+		inorder(node.left, q);
+		q.enqueue(node);
+		inorder(node.right, q);
 	}
 
 
