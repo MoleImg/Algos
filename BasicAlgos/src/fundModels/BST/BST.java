@@ -1,3 +1,6 @@
+/**
+ * @Todo: Implementation of Binary Search Tree
+ */
 package fundModels.BST;
 
 import fundModels.Queue.*;
@@ -101,7 +104,7 @@ public class BST<Key extends Comparable<Key>, Value> {
 		if (cmp < 0) node.right = delete(node.right, key);
 		else {
 			Node tmp = node;
-			node = min(node.right);
+			node = min(tmp.right);
 			node.right = deleteMin(tmp.right);
 			node.left = tmp.left;
 		}
@@ -172,26 +175,61 @@ public class BST<Key extends Comparable<Key>, Value> {
 	private int rank(Node node, Key key) {
 		if (null == node) return 0;
 		int cmp = node.key.compareTo(key);
-		if (0 == cmp) return size(node.left);
-		else if (cmp > 0) return rank(node.left, key);
-		else return 1 + size(node.left) + rank(node.right, key);
+		if (cmp > 0) return rank(node.left, key);
+		if (cmp < 0) return 1 + size(node.left) + rank(node.right, key);
+		else return size(node.left);
 
 	}
 
 	/**
-	 * inorder traverse
+	 * select the key of node with the rank of k
 	 */
+	public Key select(int k) {
+		if (k < 0 || k > size()) throw new IllegalArgumentException(
+			"argument to select() is invalid: " + k);
+		Node x = select(root, k);
+		return x.key;
+	}
+
+	private Node select(Node node, int k) {
+		if (null == node) return null;
+		int t = size(node.left);
+		if (t > k) return select(node.left, k);
+		if (t < k) return select(node.right, k - t - 1);
+		else return node;
+	}
+
+	public int height() {
+		return height(root);
+	}
+
+	public int height(Node node) {
+		if (null == node) return -1;
+		return 1 + Math.max(height(node.left), height(node.right));
+	}
+
 	public Iterable<Key> keys() {
 		QueueByLinkedList<Key> queue = new QueueByLinkedList<Key>();
 		inorder(root, queue);
 		return queue;
 	}
 
+	/**
+	 * in-order traverse
+	 */
 	private void inorder(Node node, QueueByLinkedList q) {
 		if (null == node) return;
 		inorder(node.left, q);
 		q.enqueue(node);
 		inorder(node.right, q);
+	}
+
+	/**
+	 * level-order traverse
+	 */
+	private void levelOrder(Node node, QueueByLinkedList q) {
+		if (null == node) return;
+		q.enqueue(node);
 	}
 
 
