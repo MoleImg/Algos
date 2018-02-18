@@ -19,9 +19,29 @@ public class BST<Key extends Comparable<Key>, Value> {
 		return size(root);
 	}
 
+	/**
+	 * 1D range count
+	 */
+	public int size(Key lo, Key hi) {
+		if (lo == null) throw new IllegalArgumentException("first argument to size() is null");
+		if (hi == null) throw new IllegalArgumentException("second argument to size() is null");
+		if (lo.compareTo(hi) > 0) return 0;
+		if (contains(hi)) return rank(hi) - rank(lo) + 1;
+		else return rank(hi) - rank(lo);
+	}
+
 	private int size(Node node) {
 		if (null == node) return 0;
 		else return node.size;
+	}
+
+	/**
+	 * 1D range search
+	 */
+	public List<Key> find(Key lo, Key hi) {
+		if (lo == null) throw new IllegalArgumentException("first argument to size() is null");
+		if (hi == null) throw new IllegalArgumentException("second argument to size() is null");
+		return find(root, lo, hi);
 	}
 
 	public boolean contains(Key key) {

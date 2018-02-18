@@ -1,5 +1,7 @@
 package fundModels.BST;
-
+/**
+ * @TODO: Implementation of red-black tree
+ */
 import java.util.NoSuchElementException;
 
 public class RedBlackBST<Key extends Comparable<Key>, Value> {
@@ -66,7 +68,7 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         if (cmp > 0) node.left = put(node.left, key, val);
         if (cmp < 0) node.right = put(node.right, key, val);
         else node.val = val;
-        // maintein red-black tree
+        // maintain red-black tree
         if (isRed(node.right) && !isRed(node.left)) node = rotateLeft(node);
         if (isRed(node.left) && isRed(node.left.left)) node = rotateRight(node);
         if (isRed(node.left) && isRed(node.right)) flipColors(node);
