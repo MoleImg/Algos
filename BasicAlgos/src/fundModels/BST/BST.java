@@ -3,6 +3,8 @@
  */
 package fundModels.BST;
 
+import java.util.List;
+
 import fundModels.Queue.*;
 
 public class BST<Key extends Comparable<Key>, Value> {
@@ -42,6 +44,11 @@ public class BST<Key extends Comparable<Key>, Value> {
 		if (lo == null) throw new IllegalArgumentException("first argument to size() is null");
 		if (hi == null) throw new IllegalArgumentException("second argument to size() is null");
 		return find(root, lo, hi);
+	}
+
+	private List<Key> find(BST<Key, Value>.Node root2, Key lo, Key hi) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	public boolean contains(Key key) {
