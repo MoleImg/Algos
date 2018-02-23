@@ -1,12 +1,10 @@
 package Assignments.HW5;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.LinkedList;
 
 import edu.princeton.cs.algs4.Point2D;
 import edu.princeton.cs.algs4.RectHV;
-import edu.princeton.cs.algs4.SET;
 
 public class KdTree {
 	private enum Separator { VERTICAL, HORIZONTAL };
@@ -88,8 +86,20 @@ public class KdTree {
 			size++;
 			return;
 		}
+		// find node position for insertion
 		Node currNode = root; Node prevNode = null;
-		root = insert(currNode, prevNode, p);
+		do {
+			if (currNode.pt.equals(p)) return;
+			prevNode = currNode;
+			currNode = currNode.isLeftChild(p) ? currNode.left : currNode.right;
+		} while (currNode != null);
+		
+		// insert new node
+		if (prevNode.isLeftChild(p)) {
+			prevNode.left = new Node(prevNode.nextSeparator(), p, prevNode.getLeftChildRect());
+		} else {
+			prevNode.right = new Node(prevNode.nextSeparator(), p, prevNode.getRightChildRect());
+		}
 		size++;
 	}
 	
@@ -129,8 +139,7 @@ public class KdTree {
 		// all points that are inside the rectangle (or on the boundary)
 		if (null == rect) throw new IllegalArgumentException("Call the range() with a null pointer!");
 		List<Point2D> result = new LinkedList<Point2D>();
-		Node currNode = root;
-		addToResultSet(currNode, rect, result);
+		addToResultSet(root, rect, result);
 		return result;
 	} 
 
